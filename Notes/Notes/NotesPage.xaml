@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.NotesPage"
+             Title="User Access">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     Clicked="OnNoteAddedClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ListView  HasUnevenRows="True" BackgroundColor="White"  x:Name="listView" ItemSelected="OnListViewItemSelected">
+
+
+        <ListView.Header>
+            <!--
+            <ContentView Padding="0,5" BackgroundColor="White">
+                <Label FontSize="Large" TextColor="BlueViolet"
+                   Text="User Access" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+            </ContentView>
+           -->
+            
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Text="User Name" 
+                       BackgroundColor="White" 
+                       Margin="20, 10, 5, 10" 
+                       Grid.Column="0" 
+                       Font="Bold"
+                       FontSize="17"
+                       Grid.Row="0" />
+                <Label Text="Role" 
+                       Margin="5, 10, 20, 10" 
+                       BackgroundColor="White" 
+                       Grid.Column="1"
+                       Font="Bold"
+                       FontSize="17"
+                       Grid.Row="0"/>
+            </Grid>
+
+        </ListView.Header>
+
+
+
+        <ListView.ItemTemplate>
+            
+            <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition  />
+                        </Grid.ColumnDefinitions>
+                        <StackLayout VerticalOptions="FillAndExpand" 
+                                     Margin="20, 10, 5, 10" 
+                                     Padding="0" 
+                                     Grid.Column="0">
+                            <Label FontSize="17"  
+                                   Text="{Binding User_Name}" 
+                                   TextColor="#2C6F3A" 
+                                   />
+                            <!--<Label FontSize="12" Text="{Binding Role, StringFormat='Role: {0}'}" />
+                            (left, top, right and bottom) 
+                            -->
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand"  
+                                     Margin="5, 10, 20, 10" 
+                                     Padding="0"  
+                                     Grid.Column="1">
+                            <Label  FontSize="17"  Text="{Binding Role, StringFormat='{0}'}" />
+                        </StackLayout>
+                    </Grid>
+                </ViewCell>
+                <!--
+                <ViewCell>
+                    <ViewCell.View>
+                        <Label Text="{Binding User_Name}" />
+                    </ViewCell.View>
+                </ViewCell>
+               -->
+
+                <!--
+                <TextCell Text="{Binding User_Name}"
+                          Detail="{Binding Comments}" 
+                          TextColor="#347C43"
+                         
+                          DetailColor="#000000"
+
+                          
+                          />
+                -->
+                    <!--
+                     <ViewCell>
+                    <StackLayout BackgroundColor="#fff"
+                        Orientation="Horizontal"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        
+                        
+                       
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding User_Name}"
+                                TextColor="#2C6F3A" 
+                                HorizontalTextAlignment="Start"
+                                Font="Bold"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                />
+                            
+                            <Label Text="{Binding Comments}"
+                                HorizontalTextAlignment="Start"
+                                HorizontalOptions="EndAndExpand"
+                                TextColor="Black" />
+                           
+                    </StackLayout>
+                       
+                    </StackLayout>
+                      </ViewCell>
+
+                         -->
+              
+                <!--
+                <TextCell Text="{Binding Text}"
+                          Detail="{Binding Date}" 
+                          TextColor="#347C43"
+                         
+                          DetailColor="#000000"
+
+                          
+                          />
+                -->
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

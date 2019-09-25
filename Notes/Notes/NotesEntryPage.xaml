@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Notes.NoteEntryPage"
+             Title="Note Entry">
+
+    <ContentPage.Resources>
+        <!-- Implicit styles -->
+        <Style TargetType="{x:Type Editor}">
+            <Setter Property="BackgroundColor"
+                    Value="{StaticResource AppBackgroundColor}" />
+        </Style>
+
+        <Style TargetType="Button"
+               ApplyToDerivedTypes="True"
+               CanCascade="True">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="BackgroundColor" Value="LightGray" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="BorderRadius" Value="5" />
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout Margin="20">
+        <Editor Placeholder="Enter User Name"
+                Text="{Binding User_Name}"
+                HeightRequest="30" />
+        <Editor Placeholder="Enter User Role"
+                Text="{Binding Role}"
+                HeightRequest="30" />
+        <Editor Placeholder="Is User Active 1 or 0?"
+                Text="{Binding Active}"
+                HeightRequest="30" />
+        <Editor Placeholder="Enter User Unid"
+                Text="{Binding User_unid}"
+                HeightRequest="30" />
+        <Editor Placeholder="Enter Comments"
+                Text="{Binding Comments}"
+                HeightRequest="30" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    Text="Save"
+                    Clicked="OnSaveButtonClicked" />
+            <Button Grid.Column="1"
+                    Text="Delete"
+                    Clicked="OnDeleteButtonClicked"/>
+        </Grid>
+    </StackLayout>
+</ContentPage>
